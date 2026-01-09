@@ -32,17 +32,15 @@ llama.addEventListener("click", () => {
   llama.style.animation = "apagar 0.5s forwards";
 
   setTimeout(() => {
-    // 🔊 Música de fondo (más volumen)
-    musicaFondo.currentTime = 0;
-    musicaFondo.volume = 0.7;
-    musicaFondo.play();
+    // Reproducir música única si existe
+    const musica = document.getElementById("musica");
+    if (musica) {
+      musica.currentTime = 0;
+      musica.volume = 0.7;
+      musica.play();
+    }
 
-    // 🎵 Música principal
-    musicaPrincipal.currentTime = 0;
-    musicaPrincipal.volume = 1;
-    musicaPrincipal.play();
-
-    // Oscuridad fuera
+    // Quitar overlay siempre
     overlay.classList.add("hidden");
   }, 1000);
 });
